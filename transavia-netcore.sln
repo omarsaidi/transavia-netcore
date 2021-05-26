@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31313.79
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transavia", "Transavia\Transavia.csproj", "{7609CF3B-76F3-499F-8830-22E76ACF4FD3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transavia.UnitTests", "Transavia.UnitTests\Transavia.UnitTests.csproj", "{13C91FDF-667F-4E02-80C6-66F6E133AB26}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7609CF3B-76F3-499F-8830-22E76ACF4FD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7609CF3B-76F3-499F-8830-22E76ACF4FD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7609CF3B-76F3-499F-8830-22E76ACF4FD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7609CF3B-76F3-499F-8830-22E76ACF4FD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13C91FDF-667F-4E02-80C6-66F6E133AB26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13C91FDF-667F-4E02-80C6-66F6E133AB26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13C91FDF-667F-4E02-80C6-66F6E133AB26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13C91FDF-667F-4E02-80C6-66F6E133AB26}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {49F86357-88BA-48AD-94D3-1BA58CD260AF}
+	EndGlobalSection
+EndGlobal

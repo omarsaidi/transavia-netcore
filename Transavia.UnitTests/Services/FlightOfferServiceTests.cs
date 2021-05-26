@@ -1,0 +1,92 @@
+using System;
+using System.Net;
+using System.Net.Http;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
+using Moq;
+using Moq.Protected;
+using Newtonsoft.Json;
+using Transavia.Resources;
+using Transavia.Services;
+using Xunit;
+
+namespace Transavia.UnitTests.Services
+{
+    public class FlightOfferServiceTests
+    {
+        private readonly Mock<IHttpClientFactory> _httpClientFactory;
+        private readonly Mock<ILogger<FlightOfferService>> _logger;
+
+        public FlightOfferServiceTests()
+        {
+            _httpClientFactory = new Mock<IHttpClientFactory>();
+            _logger = new Mock<ILogger<FlightOfferService>>();
+        }
+        [Fact]
+        public async Task GetFlightOffersAsync_DataKO_ReturnsNull()
+        {
+            // Arrange
+            var handlerMock = new Mock<HttpMessageHandler>(MockBehavior.Strict);
+            handlerMock
+               .Protected()
+               // Setup the PROTECTED method to mock
+               .Setup<Task<HttpResponseMessage>>(
+                  "SendAsync",
+                  ItExpr.IsAny<HttpRequestMessage>(),
+                  ItExpr.IsAny<CancellationToken>()
+               )
+               // prepare the expected response of the mocked http call
+               .ReturnsAsync(new HttpResponseMessage()
+               {
+                   StatusCode = HttpStatusCode.BadRequest,
+                   Content = new StringContent(string.Empty),
+               })
+               .Verifiable();
+            HttpClient client = new HttpClient(handlerMock.Object)
+            {
+                BaseAddress = new Uri(Constants.TransaviaApiHost)
+            };
+
+            _httpClientFactory.Setup(_ => _.CreateClient(It.IsAny<string>())).Returns(client);
+            // Act       
+            FlightOfferService flightOfferService = new FlightOfferService(_httpClientFactory.Object, _logger.Object);
+            FlightOffer[] flightOffers = await flightOfferService.GetFlightOffersAsync(null);
+            // Assert
+            Assert.Null(flightOffers);
+        }
+        [Fact]
+        public async Task GetFlightOffersAsync_DataOK_ReturnsFlightOffers()
+        {
+            // Arrange
+            var handlerMock = new Mock<HttpMessageHandler>(MockBehavior.Strict);
+            handlerMock
+               .Protected()
+               // Setup the PROTECTED method to mock
+               .Setup<Task<HttpResponseMessage>>(
+                  "SendAsync",
+                  ItExpr.IsAny<HttpRequestMessage>(),
+                  ItExpr.IsAny<CancellationToken>()
+               )
+               // prepare the expected response of the mocked http call
+               .ReturnsAsync(new HttpResponseMessage()
+               {
+                   StatusCode = HttpStatusCode.OK,
+                   Content = new StringContent(JsonConvert.SerializeObject(new FlightOffer[] { }), Encoding.UTF8, "application/json"),
+               })
+               .Verifiable();
+            HttpClient client = new HttpClient(handlerMock.Object)
+            {
+                BaseAddress = new Uri(Constants.TransaviaApiHost)
+            };
+
+            _httpClientFactory.Setup(_ => _.CreateClient(It.IsAny<string>())).Returns(client);
+            // Act       
+            FlightOfferService flightOfferService = new(_httpClientFactory.Object, _logger.Object);
+            FlightOffer[] flightOffers = await flightOfferService.GetFlightOffersAsync(null);
+            // Assert
+            Assert.NotNull(flightOffers);
+        }
+    }
+}
