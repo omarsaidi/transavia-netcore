@@ -44,7 +44,7 @@ steps:
     packagesToPack: 'Transavia/Transavia.csproj'
     nobuild: true
     versioningScheme: 'off'
-- task: DotNetCoreCLI@2
+- task: NuGetCommand@2
   inputs:
     command: 'push'
     packagesToPush: '$(Build.ArtifactStagingDirectory)/Transavia.*.nupkg'
