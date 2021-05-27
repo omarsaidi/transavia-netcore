@@ -46,7 +46,7 @@ namespace Transavia.UnitTests.Services
                .Verifiable();
             HttpClient client = new(handlerMock.Object)
             {
-                BaseAddress = new Uri($"{Constants.TransaviaApiHost}/v2/shopping/flight-offers")
+                BaseAddress = new Uri($"{Constants.TransaviaApiHost}/v3/routes")
             };
 
             _httpClientFactory.Setup(_ => _.CreateClient(It.IsAny<string>())).Returns(client);
