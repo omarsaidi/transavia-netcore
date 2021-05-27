@@ -9,6 +9,8 @@ namespace Transavia.Extensions
         public static IServiceCollection AddTransaviaServices(this IServiceCollection services, bool isProd, string transaviaApiKey)
         {
             services.AddScoped<IFlightOfferService, FlightOfferService>();
+            services.AddScoped<IFlightRouteService, FlightRouteService>();
+            services.AddScoped<IAirportService, AirportService>();
             services.AddHttpClient("TRANSAVIA_API_HOST", c =>
             {
                 c.BaseAddress = new Uri(isProd ? "https://api.transavia.com" : "https://tst.api.transavia.com");

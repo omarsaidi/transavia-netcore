@@ -50,7 +50,7 @@ namespace Transavia.Services
         /// limit(optional) : Maximum number of items in the response(default = 100, max = 1000 for one-way / 200 for round-trip). Can also be used in combination with OrderByEnum to return first or last item(default = 1000, max = 1000) If the response is limitted a ResultSet element is added to the response root element containing a link to request the next offset.
         /// </param>
         /// <returns></returns>
-        public async Task<FlightOffer[]> GetFlightOffersAsync(QueryParams queryParams)
+        public async Task<FlightOffersSerach> GetFlightOffersAsync(QueryParams queryParams)
         {
             string queryString = string.Empty;
             if (queryParams != null)
@@ -58,7 +58,7 @@ namespace Transavia.Services
             using HttpResponseMessage response = await _httpClient.GetAsync($"/v2/shopping/flight-offers{queryString}");
             if (response.IsSuccessStatusCode)
             {
-                FlightOffer[] flightOffers = await response.Content.ReadAsAsync<FlightOffer[]>();
+                FlightOffersSerach flightOffers = await response.Content.ReadAsAsync<FlightOffersSerach>();
                 return flightOffers;
             }
 

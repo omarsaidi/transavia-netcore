@@ -11,13 +11,14 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("Transavia")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("Omar SAIDI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
-[assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyDescriptionAttribute("NET Core library for the Transavia public APIs")]
+[assembly: System.Reflection.AssemblyFileVersionAttribute("0.0.1.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("0.0.1")]
 [assembly: System.Reflection.AssemblyProductAttribute("Transavia")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Transavia")]
-[assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
+[assembly: System.Reflection.AssemblyVersionAttribute("0.0.1.0")]
 
 // Généré par la classe MSBuild WriteCodeFragment.
 

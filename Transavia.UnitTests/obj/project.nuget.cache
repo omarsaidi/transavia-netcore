@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "2GDfDN/30AHvJpdgyGUzdOwVVb580imwe9eiW4SdJ0SmsGhSQ5XgfIWjAWbAFkJjRAgtOfbljxrTOEVC7fud8w==",
+  "dgSpecHash": "UTNI5O7IL7w0OBhBu8RQxmEiYKnqMXIOWcI0vBDSCcQ+BtbBTxQ9b7xdAlUY861cY6qPCXQKsR2tvoKA3JrEvQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\omar\\source\\repos\\transavia-netcore\\Transavia.UnitTests\\Transavia.UnitTests.csproj",
   "expectedPackageFiles": [
@@ -110,7 +110,8 @@
     "C:\\Users\\omar\\.nuget\\packages\\xunit.core\\2.4.1\\xunit.core.2.4.1.nupkg.sha512",
     "C:\\Users\\omar\\.nuget\\packages\\xunit.extensibility.core\\2.4.1\\xunit.extensibility.core.2.4.1.nupkg.sha512",
     "C:\\Users\\omar\\.nuget\\packages\\xunit.extensibility.execution\\2.4.1\\xunit.extensibility.execution.2.4.1.nupkg.sha512",
-    "C:\\Users\\omar\\.nuget\\packages\\xunit.runner.visualstudio\\2.4.3\\xunit.runner.visualstudio.2.4.3.nupkg.sha512"
+    "C:\\Users\\omar\\.nuget\\packages\\xunit.runner.visualstudio\\2.4.3\\xunit.runner.visualstudio.2.4.3.nupkg.sha512",
+    "C:\\Users\\omar\\.nuget\\packages\\transavia\\0.0.1\\transavia.0.0.1.nupkg.sha512"
   ],
   "logs": []
 }

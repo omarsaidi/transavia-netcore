@@ -28,7 +28,7 @@ namespace Transavia.UnitTests.Services
         public async Task GetFlightOffersAsync_DataKO_ReturnsNull()
         {
             // Arrange
-            var handlerMock = new Mock<HttpMessageHandler>(MockBehavior.Strict);
+            Mock<HttpMessageHandler> handlerMock = new(MockBehavior.Strict);
             handlerMock
                .Protected()
                // Setup the PROTECTED method to mock
@@ -44,15 +44,15 @@ namespace Transavia.UnitTests.Services
                    Content = new StringContent(string.Empty),
                })
                .Verifiable();
-            HttpClient client = new HttpClient(handlerMock.Object)
+            HttpClient client = new(handlerMock.Object)
             {
                 BaseAddress = new Uri(Constants.TransaviaApiHost)
             };
 
             _httpClientFactory.Setup(_ => _.CreateClient(It.IsAny<string>())).Returns(client);
             // Act       
-            FlightOfferService flightOfferService = new FlightOfferService(_httpClientFactory.Object, _logger.Object);
-            FlightOffer[] flightOffers = await flightOfferService.GetFlightOffersAsync(null);
+            FlightOfferService flightOfferService = new(_httpClientFactory.Object, _logger.Object);
+            FlightOffersSerach flightOffers = await flightOfferService.GetFlightOffersAsync(null);
             // Assert
             Assert.Null(flightOffers);
         }
@@ -60,7 +60,7 @@ namespace Transavia.UnitTests.Services
         public async Task GetFlightOffersAsync_DataOK_ReturnsFlightOffers()
         {
             // Arrange
-            var handlerMock = new Mock<HttpMessageHandler>(MockBehavior.Strict);
+            Mock<HttpMessageHandler> handlerMock = new(MockBehavior.Strict);
             handlerMock
                .Protected()
                // Setup the PROTECTED method to mock
@@ -73,18 +73,18 @@ namespace Transavia.UnitTests.Services
                .ReturnsAsync(new HttpResponseMessage()
                {
                    StatusCode = HttpStatusCode.OK,
-                   Content = new StringContent(JsonConvert.SerializeObject(new FlightOffer[] { }), Encoding.UTF8, "application/json"),
+                   Content = new StringContent(JsonConvert.SerializeObject(Array.Empty<FlightOffer>()), Encoding.UTF8, "application/json"),
                })
                .Verifiable();
-            HttpClient client = new HttpClient(handlerMock.Object)
+            HttpClient client = new(handlerMock.Object)
             {
-                BaseAddress = new Uri(Constants.TransaviaApiHost)
+                BaseAddress = new Uri($"{Constants.TransaviaApiHost}/v3/routes")
             };
 
             _httpClientFactory.Setup(_ => _.CreateClient(It.IsAny<string>())).Returns(client);
             // Act       
             FlightOfferService flightOfferService = new(_httpClientFactory.Object, _logger.Object);
-            FlightOffer[] flightOffers = await flightOfferService.GetFlightOffersAsync(null);
+            FlightOffersSerach flightOffers = await flightOfferService.GetFlightOffersAsync(null);
             // Assert
             Assert.NotNull(flightOffers);
         }
