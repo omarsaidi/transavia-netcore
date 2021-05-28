@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v5.0": {
-      "Transavia/0.0.1": {
+      "Transavia/0.0.4": {
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection.Abstractions": "5.0.0",
           "Microsoft.Extensions.Http": "5.0.0",
@@ -94,7 +94,7 @@
     }
   },
   "libraries": {
-    "Transavia/0.0.1": {
+    "Transavia/0.0.4": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
