@@ -1,10 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
-    <Version>0.0.1</Version>
+    <TargetFramework>net6.0</TargetFramework>
+    <Version>0.0.6</Version>
     <Authors>Omar SAIDI</Authors>
-    <Description>NET Core library for the Transavia public APIs</Description>
+    <Description>.NET Core library for the Transavia public APIs</Description>
   </PropertyGroup>
 
   <ItemGroup>

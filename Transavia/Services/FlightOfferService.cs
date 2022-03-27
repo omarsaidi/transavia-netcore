@@ -55,7 +55,7 @@ namespace Transavia.Services
             string queryString = string.Empty;
             if (queryParams != null)
                 queryString = queryParams.ToQueryString();
-            using HttpResponseMessage response = await _httpClient.GetAsync($"/v2/shopping/flight-offers{queryString}");
+            using HttpResponseMessage response = await _httpClient.GetAsync($"/v1/flightoffers{queryString}");
             if (response.IsSuccessStatusCode)
             {
                 FlightOffersSerach flightOffers = await response.Content.ReadAsAsync<FlightOffersSerach>();

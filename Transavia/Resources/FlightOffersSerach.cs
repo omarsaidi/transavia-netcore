@@ -28,7 +28,7 @@ namespace Transavia.Resources
     {
         public string Id { get; set; }
         public DateTime DepartureDateTime { get; set; }
-        public DateTime AarrivalDateTime { get; set; }
+        public DateTime ArrivalDateTime { get; set; }
         public MarketingAirline MarketingAirline { get; set; }
         public int FlightNumber { get; set; }
         public Airport DepartureAirport { get; set; }
