@@ -13,5 +13,6 @@ namespace Transavia.Services
         Task<Airport[]> GetAirportsByCountryCodeAsync(string countryCode);
         Task<Airport[]> GetAirportsByGeoCoordinatesAsync(QueryParams queryParams);
         Task<Airport> GetAirportsByIdAsync(string id);
+        Task<Airport[]> GetAllAirportsAsync();
     }
 }
